@@ -1,0 +1,22 @@
+6/3/2021
+Michael, Alex, Ammar, Brenda
+Alex is making a repository of test data (add link)
+Ammar demonstrated  remove_ring, and threshold functions using Python in Google Colab (add link). Both functions are working as expected.
+
+Brenda switched the naming of the field variables to no longer use _V appended to the end of the name.  Now, the _V is appended to field names for user-defined functions.
+Brenda fixed the script translator to allow Solo-style comments.  They are converted to JavaScript comments.  
+
+Discussion about removing Hot Keys from display.  We agreed they are not needed, and the display will be cleaner without them.  It is more useful to have mutliple panels in the display rather than Hot Keys.   The multiple panels to display field variables is necessary in HawkEdit.  We will keep this in the list, but let it move up in priority as other things are fixed.
+
+Discussion about BAD_FLAGS.  
+The threshold functions work on 1 field.
+The bad flag functions work on multiple fields. 
+The bad flag functions provide complex logic (AND, OR, XOR, etc.) for removing bad data.  The functionality is important!  There is a “bad flag mask” that is internal to Soloii.  HawkEdit will expose this mask and treat it like a field variable (e.g. bad flag mask can be plotted, appears in spreadsheet, etc.)
+The bad flag mask and operations lead to a more general concept of a “quality” associated with each gate.  This quality field could be a mask that contains beamblock, PID, ground clutter, or biological target data.  It would be useful to apply a “quality” field as a mask to another field, fore example, a clutter map.  The bad flag functions include SET_BAD_FLAGS, CLEAR_BAD_FLAGS, ASSERT_BAD_FLAGS (which actually removes, or takes out the bad data from a field).  The bad flag functions also include the logical operators XOR, AND, OR, etc.  
+
+Ammar has looked at deglitch code, but there are a lot of TODO’s and notes, indicating that deglitch may not be ready for use yet.  Note: deglitch operates on multiple rays since it considers not only gate position, but also azimuth position.
+
+Alex will continue to add to data sets and examples to the test data repository.
+
+Brenda will continue integrating the missing Boundary Editor features.  These were added to HawkEye after the code was branched to form HawkEdit.  Once ready, Brenda will create a new DMG for Alex and Brad to test.
+
