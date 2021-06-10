@@ -1,0 +1,11 @@
+6/10/2021
+Alex, Ammar, Brad, Wen-Chau, Brenda
+Ammar demonstrated deglitch using Python in Google Colab.  Deglitch seems to be working correctly.  Ammar tested the function on real data and synthetic data generated using sin and cos function.  
+
+We had a discussion about 1D and 2D deglitch functions.  Currently, Soloii and HawkEdit, and Python Solo interface perform 1D deglitch of the data.  Wen-Chau challenged us to think about how to implement 2D and even 3D deglitching.   Wen-Chau also explained how the background in not constant.  Rather, it is more of a gradient.  We talked about how this variability in the background could be handled when detecting discontinuities in the data.  Deglitch, and despeckle are basically detecting discontinuities in the data.  
+
+Alex is continuing to gather and post relavant data sets to the Github repository of benchmark data. 
+
+Brad is continuing to test HawkEdit and has noted errors when opening additional data files.  Brad also noticed an error when HawkEdit tries to display DBZ field.  Wen-Chau noticed a similar error, when the data field is dBZ.  For some reason, HawkEdit won’t correctly graph the DBZ fields, but HawkEye can.  Brad and Wen-Chau also noticed an error when changing the color scale of a field.  The data are not redrawn with the new color scale.  All of these errors have been reported in the lrose-HawkEdit repo. 
+
+Brenda is continuing to integrate the missing Boundary Editor features.  There is some restructuring of the code that is needed for the integration.  
