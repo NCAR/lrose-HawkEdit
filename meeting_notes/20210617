@@ -1,0 +1,9 @@
+6/17/2021
+Alex, Ammar, Brenda
+Alex has added sed Solo scripts to the test data Github repository.  These scripts complete test data and rexpected results for ground-based data editing.  The data are from Hurricane Michael (is this correct?)
+
+We talked about HawkEye and HawkEdit displaying and working with multiple sweeps/elevation angles  in a radar data file.  Solo and Dorade data have one sweep per file.  This also relates to the discussion of 2D going to 3D data editing.  Again, the main focus of the first round of HawkEdit it replication of Soloii functions and capability.  
+
+Ammar presented work with numpy masked arrays for quickly processing 2D radar volume data.  This avoids going through each ray one at a time.  The masked arrays are lists of lists and represent the 2D radar data well. The masked arrays are useful to parallelize the code and work really well for graphing data in pyArt.  Alex pointed out that masked arrays are the way to go especially when writing the edited data back to a cfradial file.   Ammar has completed integration and testing of defreckle and most of forced unfolding.  BB_unfolding is next.  Ammar showed results of the forced unfolding function and Alex showed a good data file and accompanying image for velocity unfolding.  Ammar will test with this data.  We talked about the two parameters to unfolding: unambiguous_velocity vs. Nyquist velocity.  The unambiguous velocity is a term specific to radar, but is really the same as the Nyquist velocity (please correct this as needed).
+
+Brenda is continuing the integration of the boundary features.  We talked about the mechanism to save boundaries to files.  This is a new feature (created by Jeff Smith) that HawkEdit will provide and is a mechanism to persist or expose a boundary defined interactively in HawkEdit.  From the saved boundary file specific for the triple (radar data file, field name, sweep number), the boundary can be used by the Python solo functions.  
