@@ -1,0 +1,40 @@
+HawkEdit meeting 7/22/2021
+
+Alex, Brad, Michael, Wen-Chau, Ting-Yu, Brenda
+
+Alex: there are three main areas of editing:
+1. Touch editing
+2. Solo QC
+3. Ground-based unfolding
+4. Navigation Corrections
+
+Ting-Yu agreed with Alex as far as priority of commands.
+
+Unconditional Delete
+Really, this is set to missing or bad data
+It is dependent on boundaries	
+If the command is used and no boundary is set, pop a message “Are you sure you want to delete - no boundary is set”
+
+Remove Field
+This operation remove the field from the data file.
+
+Hand unfolding 
+Add a drop down menu in spreadsheet to select +/- fold/unfold >>/<<
+Add UNDO here and apply changes option
+
+UNDO
+We talked about and UNDO and concluded that the best option to implement UNDO is to save the current state of the data to a temporary file before running a script.  Tases files could be in a hidden .tmp folder , also the files would have the same name with _TMP1, appended.  If UNDO is selected, the temporary file would be read and restored as the current state of the data.  
+
+Time Slider/Controller
+We started to talk about the time slider like in HawkEye for operating on an entire directory of data files.  We will think about how to implement this and how it applies to HawkEdit and discuss at the next meeting.  There may be options for how to operate on the data for example,
+* All time
+* Single sweep. (Default)
+* Start time / end time
+This selection has an impact on the UNDO operation, and which files/sweeps to make a temporary copy.
+
+
+Top priority for next DMG of HawkEdit:
+* Select sweep working
+* Color scale / parameter editing working and moved to main menu
+* Unconditional Delete
+* Hand unfolding +/- fold >>/<<
