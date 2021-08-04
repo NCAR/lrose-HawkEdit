@@ -7,3 +7,5 @@ On HawkEdit.
 Spreadsheet Editor - Delete will set the selected gates to the missing value specified in the Configuration Dock.
 
 Spreadsheet Editor - Delete Ray will set the selected ray (column) to missing values.
+
+Note: 'Delete Field' functionality in the spreadsheet editor is not typically needed. Delete Field is something only available in the script editor as a useful safeguard to keep users from making costly mistakes. Typically if you are manually editing (done in the Spreadsheet Editor) specific rays or gates of a field, this is a step towards the end of QC and it is likely the field will be kept for analysis at that point.
