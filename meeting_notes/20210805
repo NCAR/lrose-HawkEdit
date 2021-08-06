@@ -7,7 +7,13 @@ Demonstrated:
 * color parameter dialog
 * spreadsheet delete, etc.
 
-Wen-Chau asked about Remove field action (which removes the field from a data file).  Do we want to enforce uniform field names across the radar files of a working directory?  What about other data files that still contain the removed field.  What happens when a operation (say a script) is applied across all files?  Does the software just skip the file with the missing field and keep moving along?  What if fields are missing or have inconsistent names?  How to handle this?  
+Wen-Chau asked about Remove field action (which removes the field from a data file).  
+Do we want to enforce uniform field names across the radar files of a working directory?  
+What about other data files that still contain the removed field.  
+What happens when a operation (say a script) is applied across all files?  
+Does the software just skip the file with the missing field and keep moving along?  
+What if fields are missing or have inconsistent names?  How to handle this?  
+Brad talked about how to handle this with APAR and we will continue to discuss these questions.
 
 We agreed that HawkEdit will operate on an individual file, as a base unit.  One unit = 1 CfRadial file = 1 radar volume.  There are other software tools to slice files, such as ncks.  
 
