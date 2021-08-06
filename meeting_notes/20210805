@@ -1,0 +1,43 @@
+HawkEdit meeting notes 8/5/2021
+
+Alex, Wen-Chau, Michael, Brad, Brenda
+
+Demonstrated:
+* select sweeps
+* color parameter dialog
+* spreadsheet delete, etc.
+
+Wen-Chau asked about Remove field action (which removes the field from a data file).  Do we want to enforce uniform field names across the radar files of a working directory?  What about other data files that still contain the removed field.  What happens when a operation (say a script) is applied across all files?  Does the software just skip the file with the missing field and keep moving along?  What if fields are missing or have inconsistent names?  How to handle this?  
+
+We agreed that HawkEdit will operate on an individual file, as a base unit.  One unit = 1 CfRadial file = 1 radar volume.  There are other software tools to slice files, such as ncks.  
+
+Demo and comments:
+Field names as clickable labels:
+- need some way to highlight field name to indicate that the field labels can be clicked; some outline, some tooltip, move to bold text when selected, or hovered.
+
+Spreadsheet:
+- Apply Edits persist changes to file; undo stack is flushed.
+- Replot changes the display.
+- Refresh changes the number of rays; moves spreadsheet to different location; use for Spreadsheet navigation.
+- Make Replot Menu have Apply and Save options. 
+- talked about Undo and Redo as options from the Edit Menu.
+- talked about Nyq Vel field (see note below)
+- talked about Cancel button and warning message (see below).
+- talked about Solo II having a count of the number of data edits performed.  Michael said this is a useful indicator to apply the edits before getting too far along.
+- talked about popping a reminder to Apply Edits if 10 actions/clicks/edits have been made without applying them.  
+- talked about the Undo stack available until the last Apply Edits action.
+- would the Undo stack be available after exiting the Spreadsheet Editor?
+- Prevent user from making edits to  individual cells in spreadsheet.  As Alex said, the data can be changed only in controlled ways: the data are bad, set to missing or bad value, or change the data by know actions, such as unfold.  
+
+
+Next steps:
+* get Replot working and make a DMG
+* indicate which field is active
+* indicate that the field names are clickable and have actions associated with them
+* move ApplyEdits and Clear Edits from the Spreadsheet Configuration Dialog to the Replot Menu of the Spreadsheet table.
+* on Spreadsheet Configuration Dialog, only keep Refresh button to change the Spreadsheet display.  
+* Cancel, pop a message “you have unapplied edits, do you still want to leave?”
+* Commit Changes button?
+* make the Nyq Vel edit field read only (not editable)
+* grab the Nyq Velocity from the data file and display it.  Note, for NEXRAD data the  Nyquist velocity can change with radar angle, so keep this consistent in the Spreadsheet Configuration display.
+* Remove the “0 implies …” from the Spreadsheet Configuration Dialog
