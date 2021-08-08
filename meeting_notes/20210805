@@ -47,3 +47,18 @@ Next steps:
 * make the Nyq Vel edit field read only (not editable)
 * grab the Nyq Velocity from the data file and display it.  Note, for NEXRAD data the  Nyquist velocity can change with radar angle, so keep this consistent in the Spreadsheet Configuration display.
 * Remove the “0 implies …” from the Spreadsheet Configuration Dialog
+
+Notes on Replot ...
+—— getting Replot working …
+NEED TO KNOW WHICH SWEEP TO DISPLAY IN THE SPREADSHEET!!!
+If the sweep changes, do we change the spreadsheet editor?
+Need to send the sweep angle, ray azimuth, fieldname, data to applyEdits/Changes
+
+HOW TO HANDLE newElevation??? When is this set? when does it change?
+add an edit box in Spreadsheet Navigation??? handle like azimuth?
+—> display current sweep elevation in Spreadsheet header, 
+There are two ways to change spreadsheet view:
+1. clicking in the polar display
+2. changing the azimuth and elevation in the Spreadsheet Navigation Dialog
+If there are unsaved changes in the Spreadsheet view, then a warning message appears.
+Any navigation change requires an azimuth and an elevation.
