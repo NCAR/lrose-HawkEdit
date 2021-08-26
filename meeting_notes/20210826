@@ -1,0 +1,23 @@
+August 26, 2021 meeting notes:
+Alex and Brenda
+
+Demo of new release of HawkEdit that replots changes made to the Spreadsheet editor (known as Examine in Soloii).
+See notes on the release page for version 20210826.  Also try File->Save to export the data edits made.
+
+Question about spreadsheet edits respecting a boundary.  The answer is no.  To perform data changes with respect
+to a boundary, use the Scripts.  From the Script editor, click use boundary and then perform an unconditional delete
+of the data.
+
+The next features and bug fixes will follow the list of items from the meeting of 20210805 with the addition of these:
+* get click-centering working.  A click in the polar display should immediately center the Spreadsheet on the sweep, ray, and gate of the click.
+  This should happen without a Refresh in the spreadsheet navigator. If however, there are unfinished edits, then a warning message
+  appears indicating "There are unfinished edits, please apply the edits or clear the edits."
+* double-click in polar display to translate the image, while keeping the zoom level constant. 
+  In Soloii, double-clicking in a corner, or edge moves the center of the display to the click point, without changing
+  the zoom level. This movement/translation would NOT be connected to drawing a boundary as is the case in Soloii.
+* bug fix, get the boundary editor working again.
+* set the text size and boundary point size fixed, so that zooming in does not create giant text, or giant boundary point markers.
+* get Clear Edits working.
+
+There will be no meeting next week.  We will meet again after the Labor Day weekend.
+
