@@ -1,0 +1,41 @@
+Brad, Alex, Michael, Brenda
+
+Demo:
+* zoom in/ zoom out no supersized labels
+* run script with boundary; change color scale; add field to display; use “_V” currently for field names with 
+  Solo predefined functions.
+
+Alex and Brad noted that regarding the priority of Boundary Editor features,  the Polygon is the most useful.  
+Currently Circle and Brush tools are not working, and they have lower priority as far as working features 
+for the first releases of HawkEdit.  Brad noted that the Brush tool has higher priority as being more useful 
+than the Circle tool.  Alex agreed with this.  The main features of the Boundary Editor to make it useful for 
+the first releases of HawkEdit are:
+* Polygon tool
+* Clear boundary
+* Save multiple boundaries
+* Polygon with moveable points
+
+Brad and Alex noted that the current icon in the message that is displayed when a script completes is misleading.  
+The icon looks like something went wrong, when actually, the script completed without error.  
+Brenda will add this to the issues.
+
+Alex and Brad both noted that HawkEdit with airborne data gives an error “bad sweep index” when running a script.  
+This error is not present for SPOL PECAN data.  The error does occur with .ar2b Miami NEXRAD data, Eldora sweep data 
+and other files from the set of test data that Alex added to the Github repository of test data. Since this error is 
+preventing any further testing of the scripts, tracking down this bug is top priority.
+
+Alex and Brad noticed that the parameter color scale editor does not update after a change to the max or min value.  
+A further click in the dialog is needed for the color scale to refresh.
+
+The boundary thickness differs between airborne and ground-based data.  The ground-based data boundary line is too thin.  
+Also, it would be useful to allow a color change of the boundary line.
+
+Alex noted that when working with the polar display, there are several actions that can be active at the same time.  
+These include boundary point selection, zoom in/ zoom out, and then with the addition of panning, it can be confusing 
+to both the software and to the user which tool is active.  We need to think about a different cursor to indicate which 
+tool is active when interacting with the polar display.
+
+We all had a question about the PURPLE_HAZE  field variable in some Hurricane data that Ting-Yu frequently used.  
+Perhaps there is an explanation of the data and the field variable name?
+
+We all agreed to move the regular meetings to Tuesdays from 2-3pm since the regular Thursday 4-5pm time has some conflicts.  
