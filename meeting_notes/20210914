@@ -3,7 +3,8 @@ Alex, Brad, Brenda
 Demo of ZERO_INSIDE_BOUNDARY test function, to verify the "bad sweep index" error is fixed.
 Demo of "+/- Fold Ray >" spreadsheet editor actions.  
 
-Alex explained the PURPLE_HAZE field in the NEXRAD data.  (A song, a beer, and a radar field.) See link for explanation.
+Alex explained the PURPLE_HAZE field in the NEXRAD data. It's about a song, a beer, and a radar field.
+[See link for explanation](https://www.roc.noaa.gov/wsr88d/PublicDocs/NNow/NNautumn07b.pdf)
 NEXRAD now, Autumn, 2017.
 
 New bugs discovered:
