@@ -1,0 +1,10 @@
+
+
+BB-unfolding of <field>
+
+BB-use-local-wind
+Ew-wind is <value>
+Ns-wind is <value>
+Despeckle <field>
+
+A-speckle is <value> gates
