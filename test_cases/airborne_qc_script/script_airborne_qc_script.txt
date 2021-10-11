@@ -1,0 +1,12 @@
+Remove-only-surface in <field>
+Threshold <field> on <field> below/above <value>
+Clear-bad-flags
+Set-bad-flags when <field> above/below <value>
+Assert-bad-flags in <field>
+BB-unfolding of <field>
+Optimal-beamwidth is <value> degrees
+BB-max-neg-folds is <value>
+BB-max-pos-folds is <value>
+BB-use-ac-wind
+BB-gates-averaged is <value> gates
+Copy-bad-flags from <field>
