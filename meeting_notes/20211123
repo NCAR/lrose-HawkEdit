@@ -12,4 +12,7 @@ Now, suppose a data file containing an RHI scan is opened.  Then, a separate RHI
 a four-panel RHI display, showing the same four data fields.  Anyway, we just started talking about how
 the multipanel displays might work for both PPI and RHI data.
 
+The multiple window display feature may be implemented using Qt dynamic layouts.  Dynamic layouts are new 
+to HawkEdit and HawkEye and will require further investigation and learning.
+
 That's about it.  Happy Thanksgiving!
