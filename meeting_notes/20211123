@@ -1,5 +1,9 @@
 Meeting Notes (Brad, Brenda)
 
+BB_UNFOLDING is probably working now.  The syntax of the command needed updating.  
+We need a new release (DMG) and more testing.  The next release will be next week, most likely after
+the addition of the time slider.
+
 We talked about the Time Slider as navigation only through the time dimension of the data set.
 The Script Editor dialog gets two new text edit lines for start and end time, along with calendar and time widgets.
 Brad said year, month, day, hour, and minutes are enough precision for the start and end times for the script to apply.
