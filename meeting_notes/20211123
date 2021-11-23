@@ -1,0 +1,15 @@
+Meeting Notes (Brad, Brenda)
+
+We talked about the Time Slider as navigation only through the time dimension of the data set.
+The Script Editor dialog gets two new text edit lines for start and end time, along with calendar and time widgets.
+Brad said year, month, day, hour, and minutes are enough precision for the start and end times for the script to apply.
+We talked about the Time Slider and the Script Editor dialog; the two really don't interact with each other.  
+
+We talked about the multiple window display feature that is on the horizon.  It seems the RHI display and the multiple
+window display features are related and may be implemented at the same time.  
+We talked about a possible use case with a four-panel PPI display showing four different data fields.  
+Now, suppose a data file containing an RHI scan is opened.  Then, a separate RHI window would popup with
+a four-panel RHI display, showing the same four data fields.  Anyway, we just started talking about how
+the multipanel displays might work for both PPI and RHI data.
+
+That's about it.  Happy Thanksgiving!
