@@ -1,0 +1,13 @@
+// 
+// from Conrad
+//
+// use RadxConvert prior to this script to apply any cfac (correction factors)
+//
+OPTIMAL_BEAMWIDTH = 3.0
+D0 = DBZ
+REMOVE_ONLY_SURFACE(D0, OPTIMAL_BEAMWIDTH)
+VGR = VEL
+REMOVE_ONLY_SURFACE(VGR, OPTIMAL_BEAMWIDTH)
+REMOVE_AIRCRAFT_MOTION(VGR)
+V0 = VGR
+
