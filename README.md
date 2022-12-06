@@ -1,5 +1,5 @@
 # lrose-HawkEdit
-Repository to track HawkEdit development.  HawkEdit is part of the LROSE project and is being developed to replace Solo.
+Repository to track HawkEdit development.  HawkEdit is part of the LROSE project and is  developed to replace Solo.
 
 Follow along with the progress through the meeting notes (view code).
 
