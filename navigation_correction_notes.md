@@ -24,3 +24,11 @@ In the SoloII code, tilt = tau_t = asin (y_t),
 RadxRay::applyGeorefs does not calculate the tilt.  
 Could RadxRay::applyGeorefs calculate the tilt from the xx, yy, zz variables? Yes.
 Is y_t = yy? Where y_t = level track-relative coordinate system? Yes.
+
+Tests:
+1. start with original Dorade sweep file (swp.X) and an associated cfac file.
+2. Use RadxConvert to embed the cfac data as meta data into the output CfRadial file. Set the RadxConvert parameter to apply georeferences.
+3. Check the output CfRadial file and verify the cfac information is part of the metadata.  Verify the azimuth, elevation, tilt, and rotation are changed and correct using the equations in the CfRadial v1.5 document, and Wen-Chau's paper, for each ray.
+4. Use HawkEdit to open the CfRadial file from step 2. Run the script command REMOVE_AIRCRAFT_MOTION. 
+5. Verify the VEL field data have changed according to the AcVel equation in Wen-Chau's paper.
+6. Run the script command REMOVE_ONLY_SURFACE. Verify data below the ground surface are set to (missing? or 0?).
