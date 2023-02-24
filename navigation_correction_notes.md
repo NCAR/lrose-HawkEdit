@@ -34,15 +34,16 @@ Tests:
 6. Run the script command REMOVE_ONLY_SURFACE. Verify data below the ground surface are set to (missing? or 0?).
 
 
-Update from unit test:
+### Update from unit test:
 Use data from Alex's Aft data set (insert link here).
-1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery going on.
- ```
+1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery happening here.
+a) Nyquist velocity
+```
     float eff_unamb_vel = 24.96; // from RADD section of Dorade file; use this value!
     float nyquist_velocity = 0.0; // 48.0437;  NOTE!!! SoloII did NOT have the nyquist velocity!
 ``` 
 this forces the se_remove_ac_motion function to use the eff_unamb_vel for the nyquist.  
-  b. The trickery.  The nyquist velocity and the aircraft velocity (ac_vel) are scaled by 100, which provides two decimal points of accuracy in the mod function, to adjust the aircraft velocity by the nyquist velocity. 
+  b) The trickery.  The nyquist velocity and the aircraft velocity (ac_vel) are scaled by 100, which provides two decimal points of accuracy in the mod function, to adjust the aircraft velocity by the nyquist velocity. In the original SoloII code, the scale factor is used, instead of a fixed number.  We will have to think about how to set the scale factor, since HawkEdit will use the CfRadial data which is already scaled.
 ``` 
     scaled_nyqv = nyqv * 100 + 0.5;  // DD_SCALE(nyqv);
     scaled_nyqi = 2*scaled_nyqv;
@@ -56,3 +57,17 @@ this forces the se_remove_ac_motion function to use the eff_unamb_vel for the ny
     }
 ```
 This is critical when calculating the amount of aircraft velocity to remove from each value of the field data. 
+  c) Follow through with the scaling when adding the adjustment for the aircraft motion:
+  ```
+          vx = data[ssIdx]*100.0 + adjust;
+          if(abs(vx) > scaled_nyqv) {
+            if (vx > 0) {
+              vx = vx - scaled_nyqi;
+	          } else {
+              vx = vx + scaled_nyqi;
+            }
+        }
+        newData[ssIdx] = vx/100.0;
+ ```
+ 
+ 2.  Resolve the differences between using radar_angles (SoloII) and applyGeorefs (Radx; CfRadial V 1.5 specification).
