@@ -35,8 +35,8 @@ Tests:
 
 
 ### Update from unit test:
-Use data from Alex's Aft data set (insert link here).
-#### 1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery happening here.
+Use data from Alex's [Aft data set](https://github.com/Alex-DesRosiers/HawkEdit_Testing_Data/tree/main/DORADES_NC/Aft).
+#### 1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from [RemoveAcMotion_unittest.cc](https://github.com/leavesntwigs/lrose-test/blob/master/libs/Solo/RemoveAcMotion_unittest.cc).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery happening here.
 a) Nyquist velocity
 ```
     float eff_unamb_vel = 24.96; // from RADD section of Dorade file; use this value!
