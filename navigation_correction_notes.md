@@ -36,7 +36,7 @@ Tests:
 
 ### Update from unit test:
 Use data from Alex's Aft data set (insert link here).
-1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery happening here.
+#### 1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery happening here.
 a) Nyquist velocity
 ```
     float eff_unamb_vel = 24.96; // from RADD section of Dorade file; use this value!
@@ -70,9 +70,9 @@ This is critical when calculating the amount of aircraft velocity to remove from
         newData[ssIdx] = vx/100.0;
  ```
  
- 2.  Resolve the differences between using radar_angles (SoloII) and applyGeorefs (Radx; CfRadial V 1.5 specification).  This is detailed in tests real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_yprime and real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_nonzero_cfacs_yprime from RemoveAcMotion_unittest.cc.
+#### 2. Resolve the differences between using radar_angles (SoloII) and applyGeorefs (Radx; CfRadial V 1.5 specification).  This is detailed in tests real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_yprime and real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_nonzero_cfacs_yprime from RemoveAcMotion_unittest.cc.
 
-a) The SoloII radar_angles code is missing the matrix M_T "which counterclockwise rotates a coordinate system along the z axis by T".  The matrix is
+a) The SoloII radar_angles code is missing the matrix M_T "which counterclockwise rotates a coordinate system along the z axis by T"[^1].  The matrix is
 ```
 cosT  sinT  0
 -sinT cosT  0
@@ -81,4 +81,4 @@ cosT  sinT  0
   Multiplying the ra_x, ra_y, and ra_z values by the M_T matrix produces values that match the xx, yy, zz values calculated in the RadxRay::applyGeorefs function, for the type Y-Prime radars.  
   b) Once the from the xx, yy, zz, and corresponding ra_x, ra_y, and ra_z * M_T are calculated, then the tilt, rotation, elevation, and azimuth can be calculated.  The ac_vel calculation in the se_remove_ac_motion function uses tilt and elevation angle.
  
-
+[^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
