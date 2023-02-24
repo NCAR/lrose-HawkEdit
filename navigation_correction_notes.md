@@ -32,3 +32,27 @@ Tests:
 4. Use HawkEdit to open the CfRadial file from step 2. Run the script command REMOVE_AIRCRAFT_MOTION. 
 5. Verify the VEL field data have changed according to the AcVel equation in Wen-Chau's paper.
 6. Run the script command REMOVE_ONLY_SURFACE. Verify data below the ground surface are set to (missing? or 0?).
+
+
+Update from unit test:
+Use data from Alex's Aft data set (insert link here).
+1. Reproduce the results from SoloII.  Using radar_angles, georeference data, and cfac data.  This is unit test real_data_N42RF_TS_reproduce_SoloII_yprime from RemoveAcMotion_unittest.cc (insert link here).  In order to reproduce the field VR from VEL using remove_aircraft_motion, I had to change the remove_aircraft_motion function.  There is some trickery going on.
+ ```
+    float eff_unamb_vel = 24.96; // from RADD section of Dorade file; use this value!
+    float nyquist_velocity = 0.0; // 48.0437;  NOTE!!! SoloII did NOT have the nyquist velocity!
+``` 
+this forces the se_remove_ac_motion function to use the eff_unamb_vel for the nyquist.  
+  b. The trickery.  The nyquist velocity and the aircraft velocity (ac_vel) are scaled by 100, which provides two decimal points of accuracy in the mod function, to adjust the aircraft velocity by the nyquist velocity. 
+``` 
+    scaled_nyqv = nyqv * 100 + 0.5;  // DD_SCALE(nyqv);
+    scaled_nyqi = 2*scaled_nyqv;
+    scaled_ac_vel = ac_vel * 100 + 0.5; // DD_SCALE(ac_vel);
+    adjust = scaled_ac_vel % scaled_nyqi;
+    if(abs(adjust) > scaled_nyqv) {
+      if (adjust > 0) 
+        adjust = adjust - scaled_nyqi;
+      else 
+        adjust = adjust + scaled_nyqi;
+    }
+```
+This is critical when calculating the amount of aircraft velocity to remove from each value of the field data. 
