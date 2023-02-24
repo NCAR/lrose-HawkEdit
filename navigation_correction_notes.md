@@ -79,6 +79,6 @@ cosT  sinT  0
   0    0    1
   ```
   Multiplying the ra_x, ra_y, and ra_z values by the M_T matrix produces values that match the xx, yy, zz values calculated in the RadxRay::applyGeorefs function, for the type Y-Prime radars.  
-  b) Once the from the xx, yy, zz, and corresponding ra_x, ra_y, and ra_z * M_T are calculated, then the tilt, rotation, elevation, and azimuth can be calculated.  The ac_vel calculation in the se_remove_ac_motion function uses tilt and elevation angle.
+  b) Once the xx, yy, zz, and corresponding radar_angles variables, ra_x, ra_y, and ra_z * M_T, are calculated, then the tilt, rotation, elevation, and azimuth can be calculated.  The ac_vel calculation in the se_remove_ac_motion function uses tilt and elevation angle.
  
 [^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
