@@ -1,6 +1,6 @@
-Equations in RadxRay::applyGeorefs (CfRadial), radar_angles from SoloII (), and Wen-Chau's paper Mapping of Airborne Doppler Radar Data.
+Equations in RadxRay::applyGeorefs (CfRadial), radar_angles from SoloII (), and Wen-Chau's paper Mapping of Airborne Doppler Radar Data[^1].
 
-The equations in section 7.5 of the CfRadial document cover the equations in SoloII radar_angles and are more general than the equations in SoloII radar_angles.  Section 7.5 of the CfRadial document is coded in the RadxRay::applyGeorefs method.
+The equations in section 7.5 of the  [CfRadial document](https://github.com/NCAR/CfRadial/blob/master/docs/CfRadialDoc.v1.5.20211201.pdf) cover the equations in SoloII radar_angles and are more general than the equations in SoloII radar_angles.  Section 7.5 of the CfRadial document is coded in the RadxRay::applyGeorefs method.
 
 The equations in Wen-Chau's paper are covered by the equations in section 7.5 of the CfRadial document, except for the section 4. Expression of the Doppler velocity.  That section is roughly the code in SoloII::AcVel which calculates the correction for RemoveAircraftMotion.  The other section of Wen-Chau's paper that does not seem to be covered by the RadxRay::applyGeorefs method is the case when "the pitch and heading are changing with time and the INS is located some distance L away from the antenna" (apparent antenna motion).  I didn't find the equations for this correction in either the SoloII code or the Radx code.  
 
