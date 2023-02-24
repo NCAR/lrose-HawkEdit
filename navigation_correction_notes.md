@@ -10,15 +10,18 @@ Proposal to integrate the SoloII code for RemoveAircraftMotion with the Radx geo
 3. Calculate the tilt_t in RadxRay::applyGeorefs; store the tilt and rotation angle in the Radx::Georefs structure/class. Note: this would overwrite any existing tilt and rotation.
 
 The SoloII function AcVel is:
-
+```
 d = sqrt( (ew_vel)^2 + (ns_vel)^2 ) + cfac_ew_gndspeed_corr
 ac_vel = d * sin (tilt) + vert_vel * sin (elev)
-
-The SoloII function AcVel encodes of this equation ...
+```
+The SoloII function AcVel encodes this equation ...
+```
 V_g = i VG sin T + j VG cos T + k WG.    Equation (19) from Wen-Chau's paper
 VG  = horizontal ground speed
 WG = vertical ground speed
 V_g = the motion vector of the aircraft
+```
+Note: I am not sure if this is the appropriate correction for the tail radar. In Wen-Chau's paper, "the track-relative tilt angle \tau_t is important.  The component of the aircraft ground speed V_g in the beam direction is -V_g sin \tau_t.  Knowledge of the \tau_t is required to properly remove the ground velocity component in the Doppler velocity."[^1] Should this equation be used instead of the Equation (19)?
 
 In the SoloII code, tilt = tau_t = asin (y_t),
 RadxRay::applyGeorefs does not calculate the tilt.  
