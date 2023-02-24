@@ -70,4 +70,15 @@ This is critical when calculating the amount of aircraft velocity to remove from
         newData[ssIdx] = vx/100.0;
  ```
  
- 2.  Resolve the differences between using radar_angles (SoloII) and applyGeorefs (Radx; CfRadial V 1.5 specification).
+ 2.  Resolve the differences between using radar_angles (SoloII) and applyGeorefs (Radx; CfRadial V 1.5 specification).  This is detailed in tests real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_yprime and real_data_N42RF_TS_ApplyGeoref_vs_radar_angles_nonzero_cfacs_yprime from RemoveAcMotion_unittest.cc.
+
+a) The SoloII radar_angles code is missing the matrix M_T "which counterclockwise rotates a coordinate system along the z axis by T".  The matrix is
+```
+cosT  sinT  0
+-sinT cosT  0
+  0    0    1
+  ```
+  Multiplying the ra_x, ra_y, and ra_z values by the M_T matrix produces values that match the xx, yy, zz values calculated in the RadxRay::applyGeorefs function, for the type Y-Prime radars.  
+  b) Once the from the xx, yy, zz, and corresponding ra_x, ra_y, and ra_z * M_T are calculated, then the tilt, rotation, elevation, and azimuth can be calculated.  The ac_vel calculation in the se_remove_ac_motion function uses tilt and elevation angle.
+ 
+
