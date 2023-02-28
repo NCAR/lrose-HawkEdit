@@ -83,5 +83,22 @@ cosT  sinT  0
   ```
   Multiplying the ra_x, ra_y, and ra_z values by the M_T matrix produces values that match the xx, yy, zz values calculated in the RadxRay::applyGeorefs function, for the type Y-Prime radars.  
   b) Once the xx, yy, zz, and corresponding radar_angles variables, ra_x, ra_y, and ra_z * M_T, are calculated, then the tilt, rotation, elevation, and azimuth can be calculated.  The ac_vel calculation in the se_remove_ac_motion function uses tilt and elevation angle.
+  
+### Next steps
+1. Add arguments to HawkEdit REMOVE_AIRCRAFT_MOTION to allow calculations using radar_angles.  This would allow SoloII results to continue.  The default is Radx::applyGeorefs calculation.  Document this SoloII option as a separate workflow. 
+ 
+SoloII workflow: 
+```
+swp.X ==> RadxConvert; insert cfacs; DO NOT apply georefs ==> CfRadial file
+CfRadial file ==> HawkEdit; Edit script; REMOVE_AIRCRAFT_MOTION(..., SoloII = true)
+```
+
+Default workflow:
+```
+swp.X ==> RadxConvert; insert cfacs; apply georefs ==> CfRadial file
+CfRadial file ==> HawkEdit; Edit script; REMOVE_AIRCRAFT_MOTION(...)
+```
+2. Discard SoloII and the radar_angles. No ability to reproduce the SoloII results in HawkEdit.
+3. Something else?
  
 [^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
