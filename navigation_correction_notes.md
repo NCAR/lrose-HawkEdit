@@ -1,4 +1,9 @@
+There are two steps for airborne tail Doppler radar data analysis:
+1. navigation correction
+2. airborne radar data QC processes 
+
 Equations in RadxRay::applyGeorefs (CfRadial), radar_angles from SoloII (), and Wen-Chau's paper Mapping of Airborne Doppler Radar Data[^1].
+Another resource for information is Cai, et. al. [^2].
 
 The equations in section 7.5 of the  [CfRadial document](https://github.com/NCAR/CfRadial/blob/master/docs/CfRadialDoc.v1.5.20211201.pdf) cover the equations in SoloII radar_angles and are more general than the equations in SoloII radar_angles.  Section 7.5 of the CfRadial document is coded in the RadxRay::applyGeorefs method.
 
@@ -102,3 +107,4 @@ CfRadial file ==> HawkEdit; Edit script; REMOVE_AIRCRAFT_MOTION(...)
 3. Something else?
  
 [^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
+[^2]: "A Generalized Navigation Correction Method for Airborne Doppler Radar Data", by HUAQING CAI, WEN-CHAU LEE, MICHAEL M. BELL, CORY A. WOLFF, XIAOWEN TANG, AND FRANK ROUX, October 2018, JOURNAL OF ATMOSPHERIC AND OCEANIC TECHNOLOGY, VOLUME 35, p. 1999-2017. DOI: 10.1175/JTECH-D-18-0028.1
