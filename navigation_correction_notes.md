@@ -105,6 +105,76 @@ CfRadial file ==> HawkEdit; Edit script; REMOVE_AIRCRAFT_MOTION(...)
 ```
 2. Discard SoloII and the radar_angles. No ability to reproduce the SoloII results in HawkEdit.
 3. Something else?
+
+We will proceed with option #3, Something else.  
+
+Still, the azimuth in Aft/Post_soloii swp* does NOT agree with Post_radx cfrad*
+
+Look what Soloii is using for the azimuth!!!
+Also, the elevation and fixedAngle are different, and does this matter?
+
+What is needed to wrap up this work on RemoveAcMotion?!
+Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, but at the same time, we are moving forward with the CfRadial equations and keeping the track-relative coordinates separate.  No overwriting/dual use of variables.  This just adds to the confusion.
+
+* get unit tests working again.
+* select (azimuth, rotation, etc.) to use as “azimuth” in plot. **
+* test boundary with remove_aircraft_motion plotted with rotation angle
+* what other Solo functions use radar_angles?
+
+Does it plot/display the image correctly? It seems to be correct. I need to somehow get a comparable color scale. Just import the Dorade files into HawkEdit.  There is an issue with detecting the Y-Prime axis.  
+** Both Dorade and CfRadial files have Y-Prime axis, and this can indicate the use of rotation for azimuth in plotting the data. But, for Dorade, the azimuth is already replaced with the rotation.
+Probably HawkEdit should have an option to select the coordinate to plot for the radial component (the one that we have always been using as azimuth).
+
+Does it matter that the post file data don’t agree completely? Is it just the metadata that don’t agree? Because the field data do match!!
+It is alright that the post Solo and post Radx metadata don’t match because Solo overwrites (has dual use of variables).
+
+| Soloii	| Radx |
+| ------------- | ---- |
+| =============== RadxGeoref =============== | 	=============== RadxGeoref =============== |
+| Geo-reference variables:	 | Geo-reference variables: |
+|  time: 2018/10/10 12:29:51.196000 UTC	 | time: 2018/10/10 12:29:51.196000 UTC |
+|  unitNum: 0	|  unitNum: 0 |
+|  unitId: 0	|  unitId: 0 |
+|  longitude: -86.3245	|  longitude: -86.3245 |
+|  latitude: 29.0469	|  latitude: 29.0469 |
+|  altitudeKmMsl: 1.91292	|  altitudeKmMsl: 1.91292 |
+|  altitudeKmAgl: 1.95904	|  altitudeKmAgl: 1.95904 |
+|  ewVelocity: 63.11	|  ewVelocity: 63.11 |
+|  nsVelocity: 107.57	|  nsVelocity: 107.57 | 
+|  vertVelocity: -1.04	|  vertVelocity: -1.04 |
+|  heading: 27.6086	|  heading: 27.6086 |
+|  track: -9999	 | track: -9999 |
+|  roll: 5.61951	|  roll: 5.61951 |
+|  pitch: 1.77429	|  pitch: 1.77429 |
+|  drift: 2.79053	|  drift: 2.79053 |
+|  rotation: 67.478	|  rotation: 67.478 |
+|  tilt: -19.9924	|  tilt: -19.9924 |
+|  ewWind: 5.09053	|  ewWind: 5.09053 |
+|  nsWind: -4.84845	|  nsWind: -4.84845 |
+|  vertWind: -1.42	|  vertWind: -1.42 |
+|  headingRate: 0.939331	|  headingRate: 0.939331 |
+|  pitchRate: 0.900879	|  pitchRate: 0.900879 |
+|  rollRate: -9999	|  rollRate: -9999 |
+|  driveAngle1: -9999	|  driveAngle1: -9999 |
+|  driveAngle2: -9999	|  driveAngle2: -9999 |
+|  trackRelRot: -9999	|  trackRelRot: 73.9575 |
+|  trackRelTilt: -9999	|  trackRelTilt: -16.995 |
+|  trackRelAz: -9999	|  trackRelAz: 107.642 |
+|  trackRelEl: -9999	|  trackRelEl: 15.3243 |
+| =============== RadxRay =============== |	=============== RadxRay =============== |
+| volNum: 3394	|  volNum: 3394 |
+|  sweepNum: 0	|  sweepNum: 0 |
+|  calibIndex: 0	|  calibIndex: 0 |
+|  sweepMode: elevation_surveillance	|  sweepMode: elevation_surveillance |
+|  polarizationMode: horizontal	|  polarizationMode: horizontal |
+|  prtMode: fixed	|  prtMode: fixed |
+|  followMode: none	|  followMode: none |
+|  timeSecs: 2018/10/10 12:29:51.196000	 | timeSecs: 2018/10/10 12:29:51.196000 |
+|  az: 67.478	 | az: 138.16
+|  elev: -19.9924	 | elev: 15.3243
+|  fixedAngle: -20.0006	 | fixedAngle: 1.86809
+
+
  
 [^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
 [^2]: "A Generalized Navigation Correction Method for Airborne Doppler Radar Data", by HUAQING CAI, WEN-CHAU LEE, MICHAEL M. BELL, CORY A. WOLFF, XIAOWEN TANG, AND FRANK ROUX, October 2018, JOURNAL OF ATMOSPHERIC AND OCEANIC TECHNOLOGY, VOLUME 35, p. 1999-2017. DOI: 10.1175/JTECH-D-18-0028.1
