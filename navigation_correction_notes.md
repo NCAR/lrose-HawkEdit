@@ -106,14 +106,14 @@ CfRadial file ==> HawkEdit; Edit script; REMOVE_AIRCRAFT_MOTION(...)
 2. Discard SoloII and the radar_angles. No ability to reproduce the SoloII results in HawkEdit.
 3. Something else?
 
-We will proceed with option #3, Something else.  
+## We will proceed with option #3, Something else.  
 
 Still, the azimuth in Aft/Post_soloii swp* does NOT agree with Post_radx cfrad*
 
 Look what Soloii is using for the azimuth!!!
 Also, the elevation and fixedAngle are different, and does this matter?
 
-What is needed to wrap up this work on RemoveAcMotion?!
+#### What is needed to wrap up this work on RemoveAcMotion?!
 Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, but at the same time, we are moving forward with the CfRadial equations and keeping the track-relative coordinates separate.  No overwriting/dual use of variables.  This just adds to the confusion.
 
 * get unit tests working again.
@@ -121,11 +121,12 @@ Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, 
 * test boundary with remove_aircraft_motion plotted with rotation angle
 * what other Solo functions use radar_angles?
 
-Does it plot/display the image correctly? It seems to be correct. I need to somehow get a comparable color scale. Just import the Dorade files into HawkEdit.  There is an issue with detecting the Y-Prime axis.  
+#### Does it plot/display the image correctly? 
+It seems to be correct. I need to somehow get a comparable color scale. Just import the Dorade files into HawkEdit.  There is an issue with detecting the Y-Prime axis.  
 ** Both Dorade and CfRadial files have Y-Prime axis, and this can indicate the use of rotation for azimuth in plotting the data. But, for Dorade, the azimuth is already replaced with the rotation.
 Probably HawkEdit should have an option to select the coordinate to plot for the radial component (the one that we have always been using as azimuth).
 
-Does it matter that the post file data don’t agree completely? Is it just the metadata that don’t agree? Because the field data do match!!
+#### Does it matter that the post file data don’t agree completely? Is it just the metadata that don’t agree? Because the field data do match!!
 It is alright that the post Solo and post Radx metadata don’t match because Solo overwrites (has dual use of variables).
 
 | Soloii	| Radx |
