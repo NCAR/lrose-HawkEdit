@@ -129,6 +129,10 @@ Probably HawkEdit should have an option to select the coordinate to plot for the
 #### Does it matter that the post file data don’t agree completely? Is it just the metadata that don’t agree? Because the field data do match!!
 It is alright that the post Solo and post Radx metadata don’t match because Solo overwrites (has dual use of variables).
 
+#### How to get the track-relative rotation from a post Solo swp.* file?
+If trackRelRot == missing, applyGeorefs?  throw error “Run the file through RadxConvert and set the applyGeoref = TRUE”.
+Yes, this is the approach to take.  After running the post Solo swp.* file through RadxConvert, the image in HawkEdit it correct.
+
 | Soloii	| Radx |
 | ------------- | ---- |
 | =============== RadxGeoref =============== | 	=============== RadxGeoref =============== |
