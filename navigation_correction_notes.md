@@ -117,8 +117,8 @@ Also, the elevation and fixedAngle are different, and does this matter?
 Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, but at the same time, we are moving forward with the CfRadial equations and keeping the track-relative coordinates separate.  No overwriting/dual use of variables.  This just adds to the confusion.
 
 * get unit tests working again.
-* select (azimuth, rotation, etc.) to use as “azimuth” in plot. **
-* test boundary with remove_aircraft_motion plotted with rotation angle
+* select (azimuth, rotation, etc.) to use as “azimuth” in plot. ** DONE.
+* test boundary with remove_aircraft_motion plotted with rotation angle. BROKEN, NEED TO FIX.
 * what other Solo functions use radar_angles?
 
 #### Does it plot/display the image correctly? 
