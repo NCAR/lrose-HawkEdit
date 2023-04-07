@@ -118,7 +118,7 @@ Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, 
 
 * get unit tests working again.
 * select (azimuth, rotation, etc.) to use as “azimuth” in plot. ** DONE.
-* test boundary with remove_aircraft_motion plotted with rotation angle. BROKEN, NEED TO FIX.
+* test boundary with remove_aircraft_motion plotted with rotation angle. SHOULD BE FIXED; READY TO TEST.
 * what other Solo functions use radar_angles?
 
 #### Does it plot/display the image correctly? 
@@ -178,7 +178,6 @@ Yes, this is the approach to take.  After running the post Solo swp.* file throu
 |  az: 67.478	 | az: 138.16
 |  elev: -19.9924	 | elev: 15.3243
 |  fixedAngle: -20.0006	 | fixedAngle: 1.86809
-
 
  
 [^1]: "Mapping of Airborne Doppler Radar Data", by Wen-Chau Lee, Peter Dodge, Frank D, Marks, Jr, Peter H. Hildebrand, 19 November 1992 and 9 August 1993. Journal of Atmospheric and Oceanic Technology, Volume 11, p. 572-578.
