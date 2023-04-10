@@ -119,7 +119,12 @@ Solo is not the truth.  Try to retrofit and continue using the Solo swp* files, 
 * get unit tests working again.
 * select (azimuth, rotation, etc.) to use as “azimuth” in plot. ** DONE.
 * test boundary with remove_aircraft_motion plotted with rotation angle. SHOULD BE FIXED; READY TO TEST.
-* what other Solo functions use radar_angles?
+* what other Solo functions use radar_angles?  
+```
+  // #remove-surface#
+  // #remove-only-surface#
+  // #remove-only-second-trip-surface#
+```  
 
 #### Does it plot/display the image correctly? 
 It seems to be correct. I need to somehow get a comparable color scale. Just import the Dorade files into HawkEdit.  There is an issue with detecting the Y-Prime axis.  
