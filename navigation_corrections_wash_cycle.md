@@ -16,9 +16,11 @@ that need to take place in HawkEdit. The commands in step 2 include renaming of 
 (only the first time after starting from raw data). 
 
 ### Further Comments from Alex
-This also means that what I thought was happening was incorrect, we do keep using the same data and iteratively applying cfacs. 
+We do keep using the same data and iteratively applying cfacs. 
 However, it is unclear if cfac files keep getting applied to already corrected data since we use the raw VEL field when starting over 
 from step 2 and removing aircraft motion. 
+
+#### Question
 It is also worth noting that the "apply georefs" argument is never used in the original process when converting to cfradial.
 Does anyone know if this means that Solo was taking care of the navigation corrections (in regards to georefs) when
 ``` 
@@ -28,6 +30,10 @@ copy VG to VR"
 ```
 is run in Solo? 
 Perhaps this is where the "dd radar angles" function comes in which Brenda has worked with a lot in the Solo source code. 
+
+Brenda: 
+*Yes, Solo was taking care of the navigation corrections using the dd_radar_angles code.  Before "remove-aircraft-motion in VG" runs, dd_radar_angles code runs and the resulting values for tilt, rotation, etc. are used by the code in remove-aircraft-motion.  Insidently, the remove-only-surface, like functions also use the results of dd_radar_angles.  So, we will need to sort through those details as well.*
+
 Unfortunately, looking through the guide raised more questions than answers, 
 but ideally these steps should be helpful to keep in mind as we work towards a solution in HawkEdit. 
 I have attached the original guide document for reference.
