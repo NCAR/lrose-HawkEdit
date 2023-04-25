@@ -36,4 +36,4 @@ Brenda:
 
 Unfortunately, looking through the guide raised more questions than answers, 
 but ideally these steps should be helpful to keep in mind as we work towards a solution in HawkEdit. 
-I have attached the original guide document for reference.
+I have attached the [original guide document](https://github.com/NCAR/lrose-HawkEdit/blob/main/navcorr_guide_doc.docx) for reference.
